@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="kh-icon-192.png">
+<title>KH Academy — AI Toolkits, Skills & Automation Guides</title>
+<meta name="description" content="Battle-tested AI toolkits, skills guides, and automation courses from KH Academy. Practical prompts for Claude, Gemini, and more.">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<style>
+/* ========== CSS CUSTOM PROPERTIES ========== */
+:root {
+  --font-main: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg: #09090b;
+  --bg-card: #131316;
+  --bg-card-hover: #1a1a1f;
+  --bg-surface: #0f0f12;
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --border: #27272a;
+  --border-light: #3f3f46;
+  --gradient-1: linear-gradient(135deg, #a855f7, #ec4899, #f97316);
+  --gradient-2: linear-gradient(135deg, #7c3aed, #db2777, #ea580c);
+  --gradient-text: linear-gradient(135deg, #c084fc, #f472b6, #fb923c);
+  --gradient-subtle: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(236,72,153,0.1), rgba(249,115,22,0.05));
+  --purple: #a855f7;
+  --pink: #ec4899;
+  --orange: #f97316;
+  --glow-purple: rgba(168, 85, 247, 0.3);
+  --glow-pink: rgba(236, 72, 153, 0.25);
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-sm: 8px;
+  --shadow-glow: 0 0 40px rgba(168,85,247,0.15), 0 0 80px rgba(236,72,153,0.08);
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+  --bg: #fafafa;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5f5f5;
+  --bg-surface: #f0f0f2;
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+  --border: #e4e4e7;
+  --border-light: #d4d4d8;
+  --gradient-subtle: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(236,72,153,0.05), rgba(249,115,22,0.03));
+  --shadow-glow: 0 0 40px rgba(168,85,247,0.08), 0 0 80px rgba(236,72,153,0.04);
+}
+
+/* ========== RESET ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+ul { list-style: none; }
+
+/* ========== UTILITIES ========== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--purple);
+  margin-bottom: 16px;
+}
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--gradient-1);
+  border-radius: 2px;
+}
+.section-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+}
+.section-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.6;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.section-header .section-subtitle { margin: 0 auto; }
+
+/* Scroll animation base */
+.animate-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.animate-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animate-in.stagger-1 { transition-delay: 0.05s; }
+.animate-in.stagger-2 { transition-delay: 0.1s; }
+.animate-in.stagger-3 { transition-delay: 0.15s; }
+.animate-in.stagger-4 { transition-delay: 0.2s; }
+.animate-in.stagger-5 { transition-delay: 0.25s; }
+.animate-in.stagger-6 { transition-delay: 0.3s; }
+
+/* ========== NAVIGATION ========== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 16px 0;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+.nav.scrolled {
+  background: rgba(9,9,11,0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+}
+[data-theme="light"] .nav.scrolled {
+  background: rgba(250,250,250,0.85);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+.nav-logo img { flex-shrink: 0; border-radius: 8px; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color var(--transition-interactive);
+}
+.nav-links a:hover { color: var(--text-primary); }
+.nav-cta {
+  padding: 10px 20px;
+  background: var(--gradient-1);
+  color: #fff !important;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: transform var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px var(--glow-purple);
+}
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  transition: background var(--transition-interactive), color var(--transition-interactive);
+}
+.theme-toggle:hover { color: var(--text-primary); background: var(--bg-card-hover); }
+
+/* Mobile nav */
+.mobile-menu-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+}
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 24px;
+  z-index: 999;
+}
+.mobile-menu.open { display: flex; flex-direction: column; gap: 16px; }
+.mobile-menu a {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 0;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+}
+
+/* ========== HERO ========== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 80px;
+  overflow: hidden;
+}
+
+/* Animated gradient orbs */
+.hero-orbs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+  animation: float-orb 20s ease-in-out infinite;
+}
+.hero-orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--purple) 0%, transparent 70%);
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+.hero-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--pink) 0%, transparent 70%);
+  top: 20%;
+  right: -10%;
+  animation-delay: -7s;
+  animation-duration: 25s;
+}
+.hero-orb-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--orange) 0%, transparent 70%);
+  bottom: -5%;
+  left: 30%;
+  animation-delay: -14s;
+  animation-duration: 22s;
+}
+[data-theme="light"] .hero-orb { opacity: 0.15; }
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -40px) scale(1.05); }
+  50% { transform: translate(-20px, 20px) scale(0.95); }
+  75% { transform: translate(40px, 10px) scale(1.02); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 820px;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px 6px 8px;
+  background: rgba(168,85,247,0.12);
+  border: 1px solid rgba(168,85,247,0.25);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 32px;
+}
+.hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--purple);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.hero h1 {
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+}
+.hero-subtitle {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: var(--gradient-1);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 999px;
+  transition: transform var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--glow-purple);
+}
+.btn-primary:active { transform: translateY(0); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  transition: transform var(--transition-interactive), border-color var(--transition-interactive), background var(--transition-interactive);
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-light);
+  background: var(--bg-card-hover);
+}
+.btn-secondary:active { transform: translateY(0); }
+
+/* Stats bar */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  text-align: center;
+}
+.hero-stat-value {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+.hero-stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* ========== VALUE PROPS ========== */
+.value-props { padding: 100px 0; }
+.value-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.value-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+.value-card:hover {
+  border-color: var(--border-light);
+  box-shadow: var(--shadow-glow);
+}
+.value-card:nth-child(even) {
+  direction: rtl;
+}
+.value-card:nth-child(even) > * {
+  direction: ltr;
+}
+.value-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 280px;
+}
+.value-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 48px;
+}
+.value-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius);
+  background: var(--gradient-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.value-icon svg { width: 24px; height: 24px; color: var(--purple); }
+.value-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.value-card p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .value-card {
+    grid-template-columns: 1fr;
+  }
+  .value-card:nth-child(even) {
+    direction: ltr;
+  }
+  .value-card-img {
+    min-height: 200px;
+  }
+  .value-card-content {
+    padding: 28px 24px;
+  }
+}
+
+/* ========== HOW IT WORKS ========== */
+.how-it-works { padding: 100px 0; }
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.step-card {
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.step-number {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gradient-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 2;
+}
+.step-connector {
+  position: absolute;
+  top: 32px;
+  left: calc(50% + 40px);
+  width: calc(100% - 48px);
+  height: 2px;
+  background: var(--border);
+  z-index: 1;
+}
+.step-connector::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: var(--gradient-1);
+  transition: width 1s var(--ease-out);
+}
+.step-card.visible .step-connector::after { width: 100%; }
+.step-card:last-child .step-connector { display: none; }
+.step-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.step-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+@media (max-width: 768px) {
+  .steps-grid { grid-template-columns: 1fr; gap: 48px; max-width: 400px; }
+  .step-connector {
+    top: 64px;
+    left: 50%;
+    width: 2px;
+    height: calc(100% - 16px);
+    transform: translateX(-50%);
+  }
+}
+
+/* ========== PRODUCTS ========== */
+.products { padding: 100px 0; }
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.product-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition-interactive), border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+  display: flex;
+  flex-direction: column;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-light);
+  box-shadow: var(--shadow-glow);
+}
+.product-card-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
+}
+.product-card-body {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.product-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.product-card-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.product-card-price {
+  font-size: 20px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+.product-badge {
+  display: inline-flex;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  width: fit-content;
+}
+.badge-bestseller {
+  background: rgba(168,85,247,0.15);
+  color: var(--purple);
+}
+.badge-new {
+  background: rgba(34,197,94,0.15);
+  color: #22c55e;
+}
+.badge-premium {
+  background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(249,115,22,0.15));
+  color: var(--orange);
+}
+.product-card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+/* AI Tool Badges */
+.tool-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.tool-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px 4px 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.tool-badge-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.tool-badge-icon svg { width: 10px; height: 10px; }
+.tool-chatgpt .tool-badge-icon { background: #10a37f; }
+.tool-claude .tool-badge-icon { background: #d97757; }
+.tool-gemini .tool-badge-icon { background: #4285f4; }
+.tool-midjourney .tool-badge-icon { background: #5865f2; }
+.tool-perplexity .tool-badge-icon { background: #20b8cd; }
+.tool-zapier .tool-badge-icon { background: #ff4a00; }
+.tool-make .tool-badge-icon { background: #6d00cc; }
+.tool-canva .tool-badge-icon { background: #00c4cc; }
+.tool-n8n .tool-badge-icon { background: #ea4b71; }
+
+.product-card-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  text-align: center;
+  background: var(--gradient-1);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: var(--radius);
+  transition: transform var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+.product-card-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px var(--glow-purple);
+}
+.product-card-btn:active { transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .products-grid { grid-template-columns: 1fr; }
+}
+
+/* ========== BUNDLE ========== */
+.bundle { padding: 100px 0; }
+.bundle-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.bundle-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 480px;
+}
+.bundle-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bundle-hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px;
+}
+.bundle-save {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.25);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #22c55e;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+.bundle-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.bundle-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+.bundle-pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.bundle-price {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+.bundle-original-price {
+  font-size: 24px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+.bundle-price-note {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+.bundle-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.bundle-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+.bundle-item-thumb {
+  width: 48px;
+  height: 36px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.bundle-item-name {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.bundle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 40px;
+  background: var(--gradient-1);
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 999px;
+  transition: transform var(--transition-interactive), box-shadow var(--transition-interactive);
+  width: 100%;
+}
+.bundle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--glow-purple);
+}
+
+@media (max-width: 768px) {
+  .bundle-hero { grid-template-columns: 1fr; }
+  .bundle-hero-img { height: 240px; }
+  .bundle-hero-content { padding: 32px 24px; }
+  .bundle-items { grid-template-columns: 1fr; }
+}
+
+/* ========== TESTIMONIALS ========== */
+.testimonials { padding: 100px 0; }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testimonial-card {
+  padding: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-interactive);
+}
+.testimonial-card:hover { border-color: var(--border-light); }
+.testimonial-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 16px;
+}
+.testimonial-stars svg { width: 16px; height: 16px; color: #facc15; fill: #facc15; }
+.testimonial-text {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gradient-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--purple);
+}
+.testimonial-name {
+  font-size: 14px;
+  font-weight: 700;
+}
+.testimonial-role {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+
+/* ========== TRUST BADGES ========== */
+.trust-badges {
+  padding: 60px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-surface);
+}
+.trust-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+.trust-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gradient-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.trust-icon svg { width: 20px; height: 20px; color: var(--purple); }
+.trust-label {
+  font-size: 14px;
+  font-weight: 700;
+}
+.trust-sublabel {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .trust-grid { gap: 24px; }
+  .trust-item { flex: 1 1 calc(50% - 24px); min-width: 180px; }
+}
+
+/* ========== EMAIL SIGNUP ========== */
+.email-signup {
+  padding: 100px 0;
+}
+.signup-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.signup-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-1);
+}
+.signup-card h2 {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 900;
+  margin-bottom: 12px;
+  letter-spacing: -0.03em;
+}
+.signup-card p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+.signup-form {
+  display: flex;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.signup-form input {
+  flex: 1;
+  padding: 16px 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 15px;
+  transition: border-color var(--transition-interactive);
+  outline: none;
+}
+.signup-form input::placeholder { color: var(--text-muted); }
+.signup-form input:focus { border-color: var(--purple); }
+.signup-form button {
+  padding: 16px 28px;
+  background: var(--gradient-1);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: var(--radius);
+  white-space: nowrap;
+  transition: transform var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+.signup-form button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px var(--glow-purple);
+}
+.signup-privacy {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+@media (max-width: 560px) {
+  .signup-form { flex-direction: column; }
+  .signup-card { padding: 40px 24px; }
+}
+
+/* ========== FAQ ========== */
+.faq { padding: 100px 0; }
+.faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--transition-interactive);
+}
+.faq-question:hover { color: var(--purple); }
+.faq-question svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-muted);
+  transition: transform 0.3s var(--ease-out);
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+.faq-item.open .faq-question svg { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-out), padding 0.4s var(--ease-out);
+}
+.faq-item.open .faq-answer {
+  max-height: 300px;
+  padding-bottom: 24px;
+}
+.faq-answer p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-left {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.footer-links a {
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: color var(--transition-interactive);
+}
+.footer-links a:hover { color: var(--text-primary); }
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+.footer-social a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: color var(--transition-interactive), border-color var(--transition-interactive);
+}
+.footer-social a:hover { color: var(--text-primary); border-color: var(--border-light); }
+.footer-social svg { width: 16px; height: 16px; }
+.footer-attribution {
+  width: 100%;
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.footer-attribution a {
+  font-size: 12px;
+  color: var(--text-muted);
+  transition: color var(--transition-interactive);
+}
+.footer-attribution a:hover { color: var(--text-secondary); }
+
+@media (max-width: 560px) {
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .animate-in { opacity: 1; transform: none; }
+  .hero-orb { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="kh-icon-192.png" width="36" height="36" alt="KH Academy logo">
+      KH Academy
+    </a>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <!-- TODO: Replace # with actual Gumroad/Stripe checkout link -->
+      <a href="#products" class="nav-cta">Get Started</a>
+      <a href="https://www.perplexity.ai/computer/a/kh-academy-XAqi2vE4QYiV4USgLwiOeQ" class="nav-cta" style="background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary) !important;" target="_blank">Member Login</a>
+    </div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#products" onclick="closeMobile()">Products</a>
+  <a href="#how-it-works" onclick="closeMobile()">How It Works</a>
+  <a href="#testimonials" onclick="closeMobile()">Reviews</a>
+  <a href="#faq" onclick="closeMobile()">FAQ</a>
+  <a href="https://www.perplexity.ai/computer/a/kh-academy-XAqi2vE4QYiV4USgLwiOeQ" onclick="closeMobile()" target="_blank">Member Login</a>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" style="width: fit-content; padding: 10px 20px; border-radius: var(--radius);">Toggle Theme</button>
+</div>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-orbs">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge animate-in">
+      <span class="hero-badge-dot"></span>
+      New: AI Automation Mastery just launched
+    </div>
+    <h1 class="animate-in">Stop Guessing.<br><span class="gradient-text">Start Commanding AI.</span></h1>
+    <p class="hero-subtitle animate-in">Production-ready prompts, custom Skills & Gems, and automation blueprints — everything you need to turn Claude and Gemini into your unfair advantage.</p>
+    <div class="hero-buttons animate-in">
+      <!-- TODO: Replace # with Stripe checkout / product listing link -->
+      <a href="#products" class="btn-primary">
+        Browse Products
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#bundle" class="btn-secondary">
+        Save with Bundle
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats animate-in">
+      <div class="hero-stat">
+        <div class="hero-stat-value"><span class="count-up" data-target="200">0</span>+</div>
+        <div class="hero-stat-label">Ready-to-Use Prompts</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value"><span class="count-up" data-target="5">0</span></div>
+        <div class="hero-stat-label">Complete Toolkits</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value"><span class="count-up" data-target="14">0</span>+</div>
+        <div class="hero-stat-label">Automation Workflows</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VALUE PROPS ========== -->
+<section class="value-props">
+  <div class="container">
+    <div class="section-header animate-in">
+      <div class="section-label">Why KH Academy</div>
+      <h2 class="section-title">Why people choose<br><span class="gradient-text">KH Academy</span></h2>
+      <p class="section-subtitle">Built by practitioners, not theorists. Every template and workflow has been pressure-tested in real projects.</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card animate-in">
+        <img src="images/value-human-battle-tested.jpg" alt="Woman smiling while testing AI prompts at her home desk" class="value-card-img" loading="lazy">
+        <div class="value-card-content">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Battle-Tested Prompts</h3>
+          <p>Every prompt is tested across multiple AI models and refined based on real-world results. No filler, no fluff — just prompts that actually work.</p>
+        </div>
+      </div>
+      <div class="value-card animate-in">
+        <img src="images/value-human-organized.jpg" alt="Man organizing AI workflows at a cafe" class="value-card-img" loading="lazy">
+        <div class="value-card-content">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+          </div>
+          <h3>Organized by Use Case</h3>
+          <p>Find exactly what you need. Prompts are categorized by industry, task type, and AI tool — so you spend time using them, not searching for them.</p>
+        </div>
+      </div>
+      <div class="value-card animate-in">
+        <img src="images/value-human-instant.jpg" alt="Woman excited after getting instant access on her laptop" class="value-card-img" loading="lazy">
+        <div class="value-card-content">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </div>
+          <h3>Instant Access</h3>
+          <p>Get immediate access to your course portal right after purchase. Your login arrives in seconds — start using templates in minutes, not days.</p>
+        </div>
+      </div>
+      <div class="value-card animate-in">
+        <img src="images/value-human-updates.jpg" alt="Man checking the latest updates on his phone at his standing desk" class="value-card-img" loading="lazy">
+        <div class="value-card-content">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+          </div>
+          <h3>Free Lifetime Updates</h3>
+          <p>AI evolves fast. We update our products regularly so you always have the most effective versions — included free, forever.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HOW IT WORKS ========== -->
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="section-header animate-in">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">From zero to<br><span class="gradient-text">AI-powered</span> in 3 steps</h2>
+      <p class="section-subtitle">Pick your starting point, get instant access, and start seeing results the same day.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card animate-in stagger-1">
+        <div class="step-number">1</div>
+        <div class="step-connector"></div>
+        <h3>Choose Your Toolkit</h3>
+        <p>Browse our collection and pick the products that match your needs.</p>
+      </div>
+      <div class="step-card animate-in stagger-2">
+        <div class="step-number">2</div>
+        <div class="step-connector"></div>
+        <h3>Get Instant Access</h3>
+        <p>Complete your purchase and receive your login credentials via email.</p>
+      </div>
+      <div class="step-card animate-in stagger-3">
+        <div class="step-number">3</div>
+        <div class="step-connector"></div>
+        <h3>Start Automating</h3>
+        <p>Follow the guides, use the prompts, and transform how you work with AI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRODUCTS ========== -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-header animate-in">
+      <div class="section-label">Products</div>
+      <h2 class="section-title">Your AI <span class="gradient-text">toolkit library</span></h2>
+      <p class="section-subtitle">Each product builds on the last — start with the basics, then level up to full automation.</p>
+    </div>
+    <div class="products-grid">
+      <!-- Product 1: AI Quick Start (FREE) -->
+      <div class="product-card animate-in stagger-1">
+        <img src="images/product-free-quickstart.png" alt="AI Quick Start" class="product-card-img" loading="lazy">
+        <div class="product-card-body">
+          <span class="product-badge badge-new">✦ Free</span>
+          <div class="product-card-header">
+            <div class="product-card-name">AI Quick Start</div>
+            <div class="product-card-price gradient-text">FREE</div>
+          </div>
+          <p class="product-card-desc">Free 10-page sampler with ready-to-use prompts for Claude and Gemini. Your first step into practical AI — no fluff, just results.</p>
+          <div class="tool-badges">
+            <span class="tool-badge tool-claude"><span class="tool-badge-icon"><svg viewBox="0 0 10 10" fill="white"><circle cx="5" cy="5" r="2.5" fill="none" stroke="white" stroke-width="1.2"/><circle cx="5" cy="5" r="1" fill="white"/></svg></span>Claude</span>
+            <span class="tool-badge tool-gemini"><span class="tool-badge-icon"><svg viewBox="0 0 10 10" fill="white"><polygon points="5,1 6.5,4 5,3.2 3.5,4" fill="white"/><polygon points="5,9 3.5,6 5,6.8 6.5,6" fill="white"/><polygon points="1,5 4,3.5 3.2,5 4,6.5" fill="white"/><polygon points="9,5 6,6.5 6.8,5 6,3.5" fill="white"/></svg></span>Gemini</span>
+          </div>
+          <a href="signup.html" class="product-card-btn">Get Free Access →</a>
+        </div>
+      </div>
+
+      <!-- Product 2: AI Starter Kit -->
+      <div class="product-card animate-in stagger-2">
+        <img src="images/product-starter-kit-new.png" alt="AI Starter Kit" class="product-card-img" loading="lazy">
+        <div class="product-card-body">
+          <div class="product-card-header">
+            <div class="product-card-name">AI Starter Kit</div>
+            <div class="product-card-price gradient-text">$19</div>
+          </div>
+          <p class="product-card-desc">50 essential prompts across 10 categories with ready-to-use templates. Build Claude Skills and Gemini Gems from day one.</p>
+          <div class="tool-badges">
+            <span class="tool-badge tool-claude"><span class="tool-badge-icon"><svg viewBox="0 0 10 10" fill="white"><circle cx="5" cy="5" r="2.5" fill="none" stroke="white" stroke-width="1.2"/><circle cx="5" cy="5" r="1" fill="white"/></svg></span>Claude</span>
+            <span class="tool-badge tool-gemini"><span class="tool-badge-icon"><svg viewBox="0 0 10 10" fill="white"><polygon points="5,1 6.5,4 5,3.2 3.5,4" fill="white"/><polygon points="5,9 3.5,6 5,6.8 6.5,6" fill="white"/><polygon points="1,5 4,3.5 3.2,5 4,6.5" fill="white"/><polygon points="9,5 6,6.5 6.8,5 6,3.5" fill="white"/></svg></span>Gemini</span>
+          </div>
+          <a href="signup.html?product=starter-kit" class="product-card-btn">Buy Now — $19</a>
+        </div>
+      </div>
+
+      <!-- Product 3: AI Skills Builder (BESTSELLER) -->
+      <div class="product-card animate-in stagger-3">
+        <img src="images/product-skills-builder.png" alt="AI Skills Builder" class="product-card-img" loading="lazy">
+        <div class="product-card-body">
+          <span class="product-badge badge-bestseller">★ Bestseller</span>
+          <div class="product-card-header">
+            <div class="product-card-name">AI Skills Builder</div>
+            <div class="product-card-price gradient-text">$29</div>
+          </div>
+          <p class="product-card-desc">Master advanced prompting, build custom Claude Skills and Gemini Gems, and create reusable templates that save hours every week.</p>
+          <div class="tool-badges">
+            <span class="tool-badge tool-claude"><span class="tool-badge-icon"><svg viewBox="0 0 10 10" fill="white"><circle cx="5" cy="5" r="2.5" fill="none" stroke="white" stroke-width="1.2"/><circle cx="5" cy="5" r="1" fill="white"/></svg></span>Claude</span>
+            <span class="tool-badge tool-gemini"><span class="tool-badge-icon"><svg viewBox="0 0 10 10" fill="white"><polygon points="5,1 6.5,4 5,3.2 3.5,4" fill="white"/><polygon points="5,9 3.5,6 5,6.8 6.5,6" fill="white"/><polygon points="1,5 4,3.5 3.2,5 4,6.5" fill="white"/><polygon points="9,5 6,6.5 6.8,5 6,3.5" fill="white"/></svg></span>Gemini</span>
+          </div>
+          <a href="signup.html?product=skills-builder" class="product-card-btn">Buy Now — $29</a>
+        </div>
+      </div>
+
+      <!-- Product 4: AI for Small Business -->
+      <div class="product-card animate-in stagger-4">
+        <img src="images/product-small-business.png" alt="AI for Small Business" class="product-card-img" loading="lazy">
+        <div class="product-card-body">
+          <div class="product-card-header">
+            <div class="product-card-name">AI for Small Business</div>
+            <div class="product-card-price gradient-text">$47</div>
+          </div>
+          <p class="product-card-desc">Complete business AI system — from customer service to content marketing. 10 chapters of workflows, prompts, and implementation templates.</p>
+          <div class="tool-badges">
+            <span class="tool-badge tool-claude"><span class="tool-badge-icon"><svg viewBox="0 0 10 10" fill="white"><circle cx="5" cy="5" r="2.5" fill="none" stroke="white" stroke-width="1.2"/><circle cx="5" cy="5" r="1" fill="white"/></svg></span>Claude</span>
+            <span class="tool-badge tool-gemini"><span class="tool-badge-icon"><svg viewBox="0 0 10 10" fill="white"><polygon points="5,1 6.5,4 5,3.2 3.5,4" fill="white"/><polygon points="5,9 3.5,6 5,6.8 6.5,6" fill="white"/><polygon points="1,5 4,3.5 3.2,5 4,6.5" fill="white"/><polygon points="9,5 6,6.5 6.8,5 6,3.5" fill="white"/></svg></span>Gemini</span>
+          </div>
+          <a href="signup.html?product=small-business" class="product-card-btn">Buy Now — $47</a>
+        </div>
+      </div>
+
+      <!-- Product 5: AI Automation Mastery (PREMIUM) -->
+      <div class="product-card animate-in stagger-5">
+        <img src="images/product-automation-mastery.png" alt="AI Automation Mastery" class="product-card-img" loading="lazy">
+        <div class="product-card-body">
+          <span class="product-badge badge-premium">◆ Premium</span>
+          <div class="product-card-header">
+            <div class="product-card-name">AI Automation Mastery</div>
+            <div class="product-card-price gradient-text">$67</div>
+          </div>
+          <p class="product-card-desc">Build hands-free AI workflows with Zapier and n8n. 14 chapters covering content, email, CRM, and client onboarding automation.</p>
+          <div class="tool-badges">
+            <span class="tool-badge tool-claude"><span class="tool-badge-icon"><svg viewBox="0 0 10 10" fill="white"><circle cx="5" cy="5" r="2.5" fill="none" stroke="white" stroke-width="1.2"/><circle cx="5" cy="5" r="1" fill="white"/></svg></span>Claude</span>
+            <span class="tool-badge tool-gemini"><span class="tool-badge-icon"><svg viewBox="0 0 10 10" fill="white"><polygon points="5,1 6.5,4 5,3.2 3.5,4" fill="white"/><polygon points="5,9 3.5,6 5,6.8 6.5,6" fill="white"/><polygon points="1,5 4,3.5 3.2,5 4,6.5" fill="white"/><polygon points="9,5 6,6.5 6.8,5 6,3.5" fill="white"/></svg></span>Gemini</span>
+            <span class="tool-badge tool-zapier"><span class="tool-badge-icon"><svg viewBox="0 0 10 10" fill="white"><line x1="5" y1="1" x2="5" y2="9" stroke="white" stroke-width="1.2"/><line x1="1" y1="5" x2="9" y2="5" stroke="white" stroke-width="1.2"/><line x1="2" y1="2" x2="8" y2="8" stroke="white" stroke-width="1"/><line x1="8" y1="2" x2="2" y2="8" stroke="white" stroke-width="1"/></svg></span>Zapier</span>
+            <span class="tool-badge tool-n8n"><span class="tool-badge-icon"><svg viewBox="0 0 10 10" fill="white"><circle cx="3" cy="5" r="1.5" fill="none" stroke="white" stroke-width="1"/><circle cx="7" cy="5" r="1.5" fill="none" stroke="white" stroke-width="1"/><line x1="4.5" y1="5" x2="5.5" y2="5" stroke="white" stroke-width="1"/></svg></span>n8n</span>
+          </div>
+          <a href="signup.html?product=automation-mastery" class="product-card-btn">Buy Now — $67</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BUNDLE ========== -->
+<section class="bundle" id="bundle">
+  <div class="container">
+    <div class="bundle-card animate-in">
+      <div class="bundle-hero">
+        <img src="images/product-ultimate-bundle.png" alt="Ultimate AI Bundle" class="bundle-hero-img" loading="lazy">
+        <div class="bundle-hero-content">
+          <div class="bundle-save">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            Save $<span class="count-up" data-target="15">0</span> vs buying separately
+          </div>
+          <h2 class="bundle-title">Ultimate AI<br><span class="gradient-text">Bundle</span></h2>
+          <p class="bundle-subtitle">Get all 4 paid products in one discounted package. The complete journey from AI beginner to automation expert.</p>
+          <div class="bundle-pricing">
+            <span class="bundle-price gradient-text">$147</span>
+            <span class="bundle-original-price">$162</span>
+          </div>
+          <p class="bundle-price-note">One-time payment · Lifetime access · Free updates</p>
+          <div class="bundle-items">
+            <div class="bundle-item">
+              <img src="images/product-starter-kit-new.png" alt="AI Starter Kit" class="bundle-item-thumb" loading="lazy">
+              <span class="bundle-item-name">AI Starter Kit</span>
+            </div>
+            <div class="bundle-item">
+              <img src="images/product-skills-builder.png" alt="AI Skills Builder" class="bundle-item-thumb" loading="lazy">
+              <span class="bundle-item-name">AI Skills Builder</span>
+            </div>
+            <div class="bundle-item">
+              <img src="images/product-small-business.png" alt="AI for Small Business" class="bundle-item-thumb" loading="lazy">
+              <span class="bundle-item-name">AI for Small Business</span>
+            </div>
+            <div class="bundle-item">
+              <img src="images/product-automation-mastery.png" alt="AI Automation Mastery" class="bundle-item-thumb" loading="lazy">
+              <span class="bundle-item-name">AI Automation Mastery</span>
+            </div>
+          </div>
+          <a href="signup.html?product=ultimate-bundle" class="bundle-btn">
+            Get the Ultimate Bundle — $147
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header animate-in">
+      <div class="section-label">Testimonials</div>
+      <h2 class="section-title">What our <span class="gradient-text">early users</span> say</h2>
+      <p class="section-subtitle">Real feedback from beta testers and early adopters.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card animate-in stagger-1">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-text">"These prompts are incredibly well-organized. The business automation templates alone make the whole toolkit worth it."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Sarah K.</div>
+            <div class="testimonial-role">Marketing Director</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card animate-in stagger-2">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-text">"I've tried prompt packs before but these are actually organized and useful. The step-by-step workflow guides are a game-changer."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">J</div>
+          <div>
+            <div class="testimonial-name">James L.</div>
+            <div class="testimonial-role">Freelance Writer</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card animate-in stagger-3">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-text">"The Skills Builder took me from AI-curious to building my own Claude Skills and Gemini Gems. Highly recommend the bundle."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">P</div>
+          <div>
+            <div class="testimonial-name">Priya M.</div>
+            <div class="testimonial-role">Startup Founder</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TRUST BADGES ========== -->
+<section class="trust-badges animate-in">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="trust-label">Secure Checkout</div>
+          <div class="trust-sublabel">Stripe-powered</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="trust-label">90-Day Money Back</div>
+          <div class="trust-sublabel">No questions asked</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <div>
+          <div class="trust-label">Instant Access</div>
+          <div class="trust-sublabel">Login immediately</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+        </div>
+        <div>
+          <div class="trust-label">Free Lifetime Updates</div>
+          <div class="trust-sublabel">Always up to date</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="trust-label">90-Day Guarantee</div>
+          <div class="trust-sublabel">Risk-free purchase</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EMAIL SIGNUP ========== -->
+<section class="email-signup" id="signup">
+  <div class="container">
+    <div class="signup-card animate-in">
+      <h2>Start Your AI Journey — <span class="gradient-text">Free</span></h2>
+      <p>Get instant access to the AI Quick Start course — 10 ready-to-use prompts for Claude and Gemini. No credit card required.</p>
+      <form class="signup-form" id="inlineSignupForm" onsubmit="handleInlineSignup(event)" style="flex-wrap: wrap;">
+        <input type="text" placeholder="Your name" required aria-label="Name" id="inlineName" style="flex: 1; min-width: 140px;">
+        <input type="email" placeholder="Your email address" required aria-label="Email address" id="inlineEmail" style="flex: 1; min-width: 200px;">
+        <button type="submit" id="inlineSubmitBtn">Get Free Access</button>
+      </form>
+      <div id="inlineError" style="display:none; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; padding: 10px 16px; border-radius: 8px; font-size: 14px; max-width: 480px; margin: 12px auto 0;"></div>
+      <div id="inlineSuccess" style="display:none; max-width: 480px; margin: 0 auto;">
+        <p style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">✓ You're all set!</p>
+        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 4px;">Email: <strong id="inlineSuccessEmail" style="color: var(--text-primary);"></strong></p>
+        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px;">Temp Password: <strong id="inlineSuccessPassword" style="color: var(--text-primary); font-family: monospace;"></strong></p>
+        <a href="#" id="inlineLoginLink" style="color: var(--purple); font-weight: 600; font-size: 14px;">Log in to your course →</a>
+      </div>
+      <p class="signup-privacy" id="inlinePrivacy">🔒 We respect your privacy. No spam, ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header animate-in">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Frequently asked <span class="gradient-text">questions</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item animate-in">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What format are the prompts in?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>All products are delivered as interactive online courses through our member portal. After purchase, you'll receive login credentials to access your content instantly — complete with copy-ready prompts, step-by-step walkthroughs, and hands-on templates for Claude and Gemini.</p>
+        </div>
+      </div>
+      <div class="faq-item animate-in">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do I need technical skills to use these?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Not at all! Our prompts are designed for all skill levels. Each one comes with clear instructions and examples. The AI Starter Kit is perfect for absolute beginners, while the AI Skills Builder and Automation Mastery cater to more advanced users.</p>
+        </div>
+      </div>
+      <div class="faq-item animate-in">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How do I access my purchase?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>After payment, you'll receive an email with your login credentials. Simply sign in to the member portal to access all your purchased content — available anytime, from any device.</p>
+        </div>
+      </div>
+      <div class="faq-item animate-in">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What's your refund policy?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>We offer a 90-day money-back guarantee. If you're not completely satisfied with your purchase, simply email us and we'll refund you in full — no questions asked.</p>
+        </div>
+      </div>
+      <div class="faq-item animate-in">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How often are prompts updated?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>We update our products regularly to keep up with the latest AI model updates and features. When you purchase any product, you get free lifetime access to all future updates.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">© 2026 KH Academy. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#products">Products</a>
+        <a href="#faq">FAQ</a>
+        <a href="mailto:support@khacademy.com">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+      <div class="footer-attribution">
+        <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">
+          Created with Perplexity Computer
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// Theme toggle — uses in-memory variable only
+let currentTheme = 'dark';
+
+function toggleTheme() {
+  currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  updateThemeIcon();
+}
+
+function updateThemeIcon() {
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  if (currentTheme === 'dark') {
+    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  } else {
+    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
+  }
+}
+
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+// Mobile menu
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+let menuOpen = false;
+
+mobileMenuBtn.addEventListener('click', () => {
+  menuOpen = !menuOpen;
+  mobileMenu.classList.toggle('open', menuOpen);
+  mobileMenuBtn.innerHTML = menuOpen
+    ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>'
+    : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>';
+});
+
+function closeMobile() {
+  menuOpen = false;
+  mobileMenu.classList.remove('open');
+  mobileMenuBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>';
+}
+
+// Navbar scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
+
+// Scroll animations with IntersectionObserver
+const animateElements = document.querySelectorAll('.animate-in');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Trigger count-up if inside
+      const countUps = entry.target.querySelectorAll('.count-up');
+      countUps.forEach(el => startCountUp(el));
+      // Trigger step connector animation
+      if (entry.target.classList.contains('step-card')) {
+        // Already handled by .visible class
+      }
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+animateElements.forEach(el => observer.observe(el));
+
+// Count-up animation
+function startCountUp(el) {
+  if (el.dataset.counted) return;
+  el.dataset.counted = 'true';
+  
+  const target = parseFloat(el.dataset.target);
+  const isDecimal = el.dataset.decimal === 'true';
+  const useSeparator = el.dataset.separator;
+  const duration = 800;
+  const startTime = performance.now();
+  
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // Ease-out curve
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = eased * target;
+    
+    if (isDecimal) {
+      el.textContent = current.toFixed(1);
+    } else if (useSeparator) {
+      el.textContent = Math.round(current).toLocaleString();
+    } else {
+      el.textContent = Math.round(current);
+    }
+    
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+  
+  requestAnimationFrame(update);
+}
+
+// Also observe elements in hero that are visible on load
+document.querySelectorAll('.hero .animate-in').forEach(el => {
+  setTimeout(() => el.classList.add('visible'), 100);
+});
+
+// FAQ toggle
+function toggleFaq(button) {
+  const item = button.parentElement;
+  const wasOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  // Toggle this one
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ===== INLINE SIGNUP CONFIG =====
+const API_BASE = 'https://your-portal-domain.com';
+const LOGIN_URL = 'https://your-portal-domain.com';
+
+// Inline free signup handler
+async function handleInlineSignup(e) {
+  e.preventDefault();
+  const name = document.getElementById('inlineName').value.trim();
+  const email = document.getElementById('inlineEmail').value.trim();
+  const btn = document.getElementById('inlineSubmitBtn');
+  const errorEl = document.getElementById('inlineError');
+  const successEl = document.getElementById('inlineSuccess');
+  const form = document.getElementById('inlineSignupForm');
+  const privacy = document.getElementById('inlinePrivacy');
+
+  errorEl.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Creating account...';
+
+  try {
+    const res = await fetch(API_BASE + '/api/signup/free', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email })
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      if (res.status === 409) {
+        errorEl.innerHTML = 'This email is already registered. <a href="' + LOGIN_URL + '" style="color:#c084fc;text-decoration:underline;">Log in here</a>.';
+      } else {
+        errorEl.textContent = data.message || 'Something went wrong. Please try again.';
+      }
+      errorEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Get Free Access';
+      return;
+    }
+
+    // Success — hide form, show credentials
+    form.style.display = 'none';
+    privacy.style.display = 'none';
+    document.getElementById('inlineSuccessEmail').textContent = data.email;
+    document.getElementById('inlineSuccessPassword').textContent = data.tempPassword;
+    document.getElementById('inlineLoginLink').href = LOGIN_URL;
+    successEl.style.display = 'block';
+  } catch (err) {
+    errorEl.textContent = 'Network error. Please check your connection and try again.';
+    errorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Get Free Access';
+  }
+}
+</script>
+</body>
+</html>

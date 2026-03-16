@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="kh-icon-192.png">
+<title>Sign Up — KH Academy</title>
+<meta name="description" content="Get your free AI Quick Start course from KH Academy. Practical prompts for Claude and Gemini.">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<style>
+/* ========== CSS CUSTOM PROPERTIES ========== */
+:root {
+  --font-main: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg: #09090b;
+  --bg-card: #131316;
+  --bg-card-hover: #1a1a1f;
+  --bg-surface: #0f0f12;
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --border: #27272a;
+  --border-light: #3f3f46;
+  --gradient-1: linear-gradient(135deg, #a855f7, #ec4899, #f97316);
+  --gradient-2: linear-gradient(135deg, #7c3aed, #db2777, #ea580c);
+  --gradient-text: linear-gradient(135deg, #c084fc, #f472b6, #fb923c);
+  --gradient-subtle: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(236,72,153,0.1), rgba(249,115,22,0.05));
+  --purple: #a855f7;
+  --pink: #ec4899;
+  --orange: #f97316;
+  --glow-purple: rgba(168, 85, 247, 0.3);
+  --glow-pink: rgba(236, 72, 153, 0.25);
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-sm: 8px;
+  --shadow-glow: 0 0 40px rgba(168,85,247,0.15), 0 0 80px rgba(236,72,153,0.08);
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========== RESET ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========== NAV ========== */
+.nav {
+  background: rgba(9,9,11,0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+.nav-logo img { flex-shrink: 0; border-radius: 8px; }
+.nav-back {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color var(--transition-interactive);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-back:hover { color: var(--text-primary); }
+
+/* ========== HERO ORBS ========== */
+.page-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  animation: float-orb 20s ease-in-out infinite;
+}
+.hero-orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--purple) 0%, transparent 70%);
+  top: -20%;
+  left: -10%;
+}
+.hero-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--pink) 0%, transparent 70%);
+  top: 40%;
+  right: -15%;
+  animation-delay: -7s;
+  animation-duration: 25s;
+}
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -40px) scale(1.05); }
+  50% { transform: translate(-20px, 20px) scale(0.95); }
+  75% { transform: translate(40px, 10px) scale(1.02); }
+}
+
+/* ========== MAIN CONTENT ========== */
+.signup-page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  position: relative;
+  z-index: 1;
+}
+.signup-container {
+  width: 100%;
+  max-width: 480px;
+}
+.signup-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.signup-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-1);
+}
+
+.signup-heading {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.signup-subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+.form-input {
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 15px;
+  transition: border-color var(--transition-interactive);
+  outline: none;
+}
+.form-input::placeholder { color: var(--text-muted); }
+.form-input:focus { border-color: var(--purple); }
+
+.submit-btn {
+  width: 100%;
+  padding: 16px 28px;
+  background: var(--gradient-1);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: transform var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+.submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px var(--glow-purple);
+}
+.submit-btn:active { transform: translateY(0); }
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.privacy-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* Error message */
+.error-msg {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  margin-bottom: 16px;
+  display: none;
+}
+.error-msg a {
+  color: #c084fc;
+  text-decoration: underline;
+}
+
+/* Success state */
+.success-state {
+  display: none;
+  text-align: center;
+}
+.success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(236,72,153,0.1));
+  border: 1px solid rgba(168,85,247,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+.success-icon svg {
+  width: 28px;
+  height: 28px;
+  color: #a855f7;
+}
+.success-title {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.success-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.success-text strong { color: var(--text-primary); }
+.credential-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+.credential-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+.credential-row:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.credential-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.credential-value {
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-primary);
+}
+.login-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--gradient-1);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+.login-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px var(--glow-purple);
+}
+.change-pw-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+/* Waitlist mode */
+.waitlist-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(168,85,247,0.12);
+  border: 1px solid rgba(168,85,247,0.25);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 16px;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.5s var(--ease-out) forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.slide-up {
+  animation: slideUp 0.5s var(--ease-out) forwards;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== FOOTER ========== */
+.site-footer {
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-copy {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.footer-attribution a {
+  font-size: 12px;
+  color: var(--text-muted);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.footer-attribution a:hover { opacity: 1; }
+
+@media (max-width: 560px) {
+  .signup-card { padding: 36px 24px; }
+  .signup-heading { font-size: 24px; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Background orbs -->
+<div class="page-bg">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="kh-icon-192.png" width="36" height="36" alt="KH Academy logo">
+      KH Academy
+    </a>
+    <a href="index.html" class="nav-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Store
+    </a>
+  </div>
+</nav>
+
+<!-- Main -->
+<main class="signup-page">
+  <div class="signup-container">
+    <div class="signup-card fade-in" id="signupCard">
+
+      <!-- Form state -->
+      <div id="formState">
+        <!-- Free signup heading (default) -->
+        <div id="freeHeading">
+          <h1 class="signup-heading">Get Your Free <span class="gradient-text">AI Quick Start</span></h1>
+          <p class="signup-subtitle">Enter your details below. We'll send your login credentials to access the free course.</p>
+        </div>
+
+        <!-- Waitlist heading (for paid products) -->
+        <div id="waitlistHeading" style="display:none;">
+          <div style="text-align:center;">
+            <span class="waitlist-badge">Coming Soon</span>
+          </div>
+          <h1 class="signup-heading">Join the Waitlist for <span class="gradient-text" id="productName"></span></h1>
+          <p class="signup-subtitle">We'll notify you as soon as this course is available for purchase.</p>
+        </div>
+
+        <div class="error-msg" id="errorMsg"></div>
+
+        <form id="signupForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <input type="text" class="form-input" id="nameInput" placeholder="Your name" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-input" id="emailInput" placeholder="Your email address" required autocomplete="email">
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn">Get Free Access →</button>
+        </form>
+        <p class="privacy-note">🔒 We respect your privacy. No spam, ever.</p>
+      </div>
+
+      <!-- Success state -->
+      <div class="success-state slide-up" id="successState">
+        <!-- Free signup success -->
+        <div id="freeSuccess">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <h2 class="success-title">You're all set!</h2>
+          <p class="success-text">Your account has been created. Here are your login credentials:</p>
+          <div class="credential-box">
+            <div class="credential-row">
+              <span class="credential-label">Email</span>
+              <span class="credential-value" id="successEmail"></span>
+            </div>
+            <div class="credential-row">
+              <span class="credential-label">Temp Password</span>
+              <span class="credential-value" id="successPassword"></span>
+            </div>
+          </div>
+          <a href="#" class="login-btn" id="loginLink">
+            Log In to Your Course
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <p class="change-pw-note">Please change your password after first login.</p>
+        </div>
+
+        <!-- Waitlist success -->
+        <div id="waitlistSuccess" style="display:none;">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <h2 class="success-title">You're on the list!</h2>
+          <p class="success-text">We'll email you at <strong id="waitlistEmail"></strong> as soon as <strong id="waitlistProduct"></strong> is available.</p>
+          <a href="index.html" class="login-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to Store
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-copy">&copy; 2026 KH Academy. All rights reserved.</div>
+    <div class="footer-attribution">
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">
+        Created with Perplexity Computer
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== CONFIGURATION =====
+// Update this URL after deployment to point to the login portal backend
+const API_BASE = 'https://your-portal-domain.com';
+
+// Login portal URL (where users log in to access courses)
+const LOGIN_URL = 'https://your-portal-domain.com';
+
+// Product name mapping for waitlist
+const PRODUCT_NAMES = {
+  'starter-kit': 'AI Starter Kit',
+  'skills-builder': 'AI Skills Builder',
+  'small-business': 'AI for Small Business',
+  'automation-mastery': 'AI Automation Mastery',
+  'ultimate-bundle': 'Ultimate AI Bundle'
+};
+
+// ===== DETECT MODE =====
+const urlParams = new URLSearchParams(window.location.search);
+const productParam = urlParams.get('product');
+const isWaitlist = !!productParam && productParam !== 'quick-start';
+
+if (isWaitlist) {
+  document.getElementById('freeHeading').style.display = 'none';
+  document.getElementById('waitlistHeading').style.display = 'block';
+  document.getElementById('productName').textContent = PRODUCT_NAMES[productParam] || productParam;
+  document.getElementById('submitBtn').textContent = 'Join Waitlist →';
+  document.title = 'Waitlist — ' + (PRODUCT_NAMES[productParam] || productParam) + ' — KH Academy';
+}
+
+// ===== FORM HANDLER =====
+async function handleSubmit(e) {
+  e.preventDefault();
+  const errorEl = document.getElementById('errorMsg');
+  const submitBtn = document.getElementById('submitBtn');
+  const name = document.getElementById('nameInput').value.trim();
+  const email = document.getElementById('emailInput').value.trim();
+
+  errorEl.style.display = 'none';
+  submitBtn.disabled = true;
+  submitBtn.textContent = isWaitlist ? 'Joining...' : 'Creating account...';
+
+  try {
+    const endpoint = isWaitlist ? '/api/signup/waitlist' : '/api/signup/free';
+    const body = isWaitlist
+      ? { name, email, product: productParam }
+      : { name, email };
+
+    const res = await fetch(API_BASE + endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      if (res.status === 409) {
+        errorEl.innerHTML = 'This email is already registered. <a href="' + LOGIN_URL + '">Log in here</a>.';
+      } else {
+        errorEl.textContent = data.message || 'Something went wrong. Please try again.';
+      }
+      errorEl.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = isWaitlist ? 'Join Waitlist →' : 'Get Free Access →';
+      return;
+    }
+
+    // Show success
+    document.getElementById('formState').style.display = 'none';
+    document.getElementById('successState').style.display = 'block';
+
+    if (isWaitlist) {
+      document.getElementById('freeSuccess').style.display = 'none';
+      document.getElementById('waitlistSuccess').style.display = 'block';
+      document.getElementById('waitlistEmail').textContent = email;
+      document.getElementById('waitlistProduct').textContent = PRODUCT_NAMES[productParam] || productParam;
+    } else {
+      document.getElementById('successEmail').textContent = data.email;
+      document.getElementById('successPassword').textContent = data.tempPassword;
+      document.getElementById('loginLink').href = LOGIN_URL;
+    }
+  } catch (err) {
+    errorEl.textContent = 'Network error. Please check your connection and try again.';
+    errorEl.style.display = 'block';
+    submitBtn.disabled = false;
+    submitBtn.textContent = isWaitlist ? 'Join Waitlist →' : 'Get Free Access →';
+  }
+}
+</script>
+</body>
+</html>
