@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="kh-icon-192.png">
+<title>Terms of Service — KH Academy</title>
+<meta name="description" content="KH Academy's Terms of Service. Read the terms and conditions for using our platform and purchasing digital products.">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --font-main: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg: #09090b;
+  --bg-card: #131316;
+  --bg-surface: #0f0f12;
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --border: #27272a;
+  --border-light: #3f3f46;
+  --gradient-1: linear-gradient(135deg, #a855f7, #ec4899, #f97316);
+  --gradient-text: linear-gradient(135deg, #c084fc, #f472b6, #fb923c);
+  --purple: #a855f7;
+  --pink: #ec4899;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* Header */
+.header {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: rgba(9, 9, 11, 0.92);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.header-logo span {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.header-back {
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: color var(--transition-interactive);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.header-back:hover { color: var(--text-primary); }
+
+/* Page title */
+.page-hero {
+  padding: 64px 0 40px;
+  border-bottom: 1px solid var(--border);
+}
+.page-title {
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.page-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+.effective-date {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 6px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Content */
+.legal-content {
+  padding: 48px 0 80px;
+  max-width: 800px;
+}
+.legal-content h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+.legal-content h2:first-child { margin-top: 0; }
+.legal-content h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+.legal-content p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.75;
+}
+.legal-content ul, .legal-content ol {
+  list-style: none;
+  margin-bottom: 16px;
+  padding-left: 0;
+}
+.legal-content ul li, .legal-content ol li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  padding: 4px 0 4px 20px;
+  position: relative;
+  line-height: 1.7;
+}
+.legal-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--purple);
+  opacity: 0.6;
+}
+.legal-content ol { counter-reset: list-counter; }
+.legal-content ol li { counter-increment: list-counter; }
+.legal-content ol li::before {
+  content: counter(list-counter, lower-alpha) ')';
+  position: absolute;
+  left: 0;
+  color: var(--purple);
+  font-weight: 600;
+  font-size: 14px;
+}
+.legal-content a {
+  color: var(--purple);
+  text-decoration: underline;
+  text-decoration-color: rgba(168, 85, 247, 0.3);
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--transition-interactive);
+}
+.legal-content a:hover { text-decoration-color: var(--purple); }
+.legal-content strong { color: var(--text-primary); font-weight: 600; }
+
+/* Info box */
+.info-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.info-box p { margin-bottom: 8px; }
+.info-box p:last-child { margin-bottom: 0; }
+
+/* Highlight box */
+.highlight-box {
+  background: var(--bg-card);
+  border-left: 3px solid var(--purple);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+.highlight-box p { margin-bottom: 0; }
+
+/* Footer */
+.footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-left {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.footer-links a {
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: color var(--transition-interactive);
+}
+.footer-links a:hover { color: var(--text-primary); }
+
+@media (max-width: 560px) {
+  .footer-inner { flex-direction: column; text-align: center; }
+  .page-hero { padding: 48px 0 32px; }
+  .legal-content { padding: 32px 0 64px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="https://www.kh-academy.com" class="header-logo"><span>KH</span> Academy</a>
+      <a href="https://www.kh-academy.com" class="header-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to site
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ========== PAGE TITLE ========== -->
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-title">Terms of Service</h1>
+    <p class="page-subtitle">The terms and conditions for using KH Academy's platform and products.</p>
+    <div class="effective-date">Last updated: March 17, 2026</div>
+  </div>
+</section>
+
+<!-- ========== CONTENT ========== -->
+<main class="container">
+  <div class="legal-content">
+
+    <h2>1. Acceptance of Terms</h2>
+    <p>By accessing or using KH Academy's website (<a href="https://www.kh-academy.com">www.kh-academy.com</a>), learning platform (<a href="https://app.kh-academy.com">app.kh-academy.com</a>), or purchasing any of our products, you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use our services or purchase our products.</p>
+    <p>These terms constitute a legally binding agreement between you and KH Academy (Knowledge Hub Academy), a business based in Hong Kong SAR.</p>
+
+    <h2>2. Account Terms</h2>
+    <ul>
+      <li>You must provide a valid name and email address to create an account.</li>
+      <li>When you sign up or make a purchase, login credentials (email and a temporary password) are sent to the email address you provide.</li>
+      <li>You are responsible for maintaining the security of your account and password. KH Academy is not liable for any loss or damage resulting from your failure to protect your credentials.</li>
+      <li>Each purchase entitles one individual to one account. Account access is personal and non-transferable.</li>
+      <li>You must be at least 16 years old to create an account.</li>
+      <li>You are responsible for all activity that occurs under your account.</li>
+    </ul>
+
+    <h2>3. Products and Digital Delivery</h2>
+    <p>KH Academy sells digital educational products, including AI courses, prompt toolkits, and automation guides. All products are:</p>
+    <ul>
+      <li><strong>Digital only</strong> — there are no physical products, no shipping, and no physical delivery</li>
+      <li><strong>Accessed online</strong> — after purchase, product content is available through your account on <a href="https://app.kh-academy.com">app.kh-academy.com</a></li>
+      <li><strong>One-time purchases</strong> — there are no subscriptions, recurring fees, or automatic renewals</li>
+      <li><strong>Delivered instantly</strong> — account credentials and product access are granted immediately upon successful payment</li>
+    </ul>
+    <p>Product descriptions, including content outlines and feature lists, are provided on our website. While we make every effort to accurately describe our products, we reserve the right to update and improve product content over time.</p>
+
+    <h2>4. Pricing and Payment</h2>
+    <ul>
+      <li>All prices are listed in <strong>United States Dollars (USD)</strong> unless otherwise stated.</li>
+      <li>Payment is processed securely by <strong>Stripe</strong>. KH Academy does not store your full payment card details.</li>
+      <li>All purchases are one-time payments. You will not be charged again unless you make another purchase.</li>
+      <li>Prices are subject to change at any time. Price changes do not affect previously completed purchases.</li>
+      <li>You are responsible for any applicable taxes in your jurisdiction.</li>
+    </ul>
+
+    <h2>5. Refund Policy</h2>
+    <div class="highlight-box">
+      <p>We offer a <strong>14-day refund policy</strong>. If you are not satisfied with your purchase, you may request a full refund within 14 days of the purchase date.</p>
+    </div>
+    <p>To request a refund, email <a href="mailto:info@kh-academy.com">info@kh-academy.com</a> with your order details. Refund conditions:</p>
+    <ul>
+      <li>Refund requests must be made within <strong>14 days</strong> of the original purchase date.</li>
+      <li>Refunds are issued to the original payment method via Stripe.</li>
+      <li>Upon refund, your access to the purchased product will be revoked.</li>
+      <li>We reserve the right to deny refund requests that show evidence of abuse, such as downloading or copying all course content before requesting a refund.</li>
+    </ul>
+    <p>Refunds are typically processed within 5-10 business days, depending on your bank or card issuer.</p>
+
+    <h2>6. Intellectual Property</h2>
+    <p>All content provided through KH Academy products — including text, prompts, templates, frameworks, guides, and course materials — is the intellectual property of KH Academy and is protected by applicable copyright and intellectual property laws.</p>
+
+    <h3>What you can do</h3>
+    <ul>
+      <li>Use the content, prompts, and templates for your own personal or business purposes</li>
+      <li>Apply techniques and frameworks you learn to your own work</li>
+      <li>Reference and adapt prompts for your personal workflow</li>
+    </ul>
+
+    <h3>What you cannot do</h3>
+    <ul>
+      <li>Redistribute, resell, or share course content with others, whether for free or for payment</li>
+      <li>Publish or post course content publicly (on websites, social media, forums, etc.)</li>
+      <li>Include course content in your own products, courses, or training materials</li>
+      <li>Use automated tools to scrape, download, or bulk-copy course content</li>
+    </ul>
+    <p>Violations of these terms may result in immediate account termination without refund.</p>
+
+    <h2>7. Prohibited Use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li><strong>Share login credentials</strong> — your account is for your use only; sharing your email and password with others is prohibited</li>
+      <li><strong>Create multiple accounts</strong> to access the same product or circumvent purchase requirements</li>
+      <li><strong>Resell or redistribute</strong> any KH Academy content or products</li>
+      <li><strong>Attempt to access</strong> products or content you have not purchased</li>
+      <li><strong>Interfere with</strong> the platform's functionality, security, or other users' access</li>
+      <li><strong>Use the platform</strong> for any unlawful purpose or in violation of any applicable law or regulation</li>
+    </ul>
+    <p>We reserve the right to suspend or terminate your account if you violate any of these terms.</p>
+
+    <h2>8. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by law:</p>
+    <ul>
+      <li>KH Academy provides its products and services <strong>"as is"</strong> without warranties of any kind, whether express or implied.</li>
+      <li>We do not guarantee specific results from using our products. The effectiveness of AI prompts, templates, and techniques depends on many factors, including which AI tools you use and how you apply the content.</li>
+      <li>KH Academy shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services.</li>
+      <li>Our total liability for any claim arising from these terms or your use of our services shall not exceed the amount you paid for the specific product giving rise to the claim.</li>
+    </ul>
+    <p>Some jurisdictions do not allow the exclusion or limitation of certain warranties or liability. In such jurisdictions, our liability is limited to the fullest extent permitted by law.</p>
+
+    <h2>9. Availability and Modifications</h2>
+    <ul>
+      <li>We strive to keep the platform available at all times but do not guarantee uninterrupted access. Maintenance, updates, or circumstances beyond our control may result in temporary downtime.</li>
+      <li>We reserve the right to update, improve, or modify product content at any time. Updates are intended to improve quality and keep content current.</li>
+      <li>We reserve the right to discontinue any product. If a product is discontinued, existing purchasers will retain access for a reasonable period (at least 12 months from the date of discontinuation notice).</li>
+    </ul>
+
+    <h2>10. Modifications to These Terms</h2>
+    <p>We may update these Terms of Service from time to time. When we make changes:</p>
+    <ul>
+      <li>The "Last updated" date at the top of this page will be revised.</li>
+      <li>For significant changes, we will make reasonable efforts to notify you via email.</li>
+      <li>Your continued use of our services after changes are posted constitutes acceptance of the updated terms.</li>
+    </ul>
+    <p>If you do not agree with the revised terms, you should stop using our services. Your right to access previously purchased products is not affected by disagreement with future term changes, subject to the other provisions of these terms.</p>
+
+    <h2>11. Governing Law and Disputes</h2>
+    <p>These Terms of Service are governed by and construed in accordance with the laws of the <strong>Hong Kong Special Administrative Region (Hong Kong SAR)</strong>, without regard to conflict of law principles.</p>
+    <p>Any disputes arising from these terms or your use of our services shall be subject to the exclusive jurisdiction of the courts of Hong Kong SAR.</p>
+    <p>Before initiating any formal proceedings, we encourage you to contact us at <a href="mailto:info@kh-academy.com">info@kh-academy.com</a> to attempt to resolve the matter amicably.</p>
+
+    <h2>12. Severability</h2>
+    <p>If any provision of these terms is found to be unenforceable or invalid by a court of competent jurisdiction, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will continue in full force and effect.</p>
+
+    <h2>13. Contact Us</h2>
+    <div class="info-box">
+      <p><strong>KH Academy (Knowledge Hub Academy)</strong></p>
+      <p>Hong Kong SAR</p>
+      <p>Email: <a href="mailto:info@kh-academy.com">info@kh-academy.com</a></p>
+      <p>Website: <a href="https://www.kh-academy.com">www.kh-academy.com</a></p>
+    </div>
+
+  </div>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">&copy; 2026 KH Academy. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://www.kh-academy.com">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:info@kh-academy.com">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

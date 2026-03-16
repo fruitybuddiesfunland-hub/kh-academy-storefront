@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="kh-icon-192.png">
+<title>Privacy Policy — KH Academy</title>
+<meta name="description" content="KH Academy's Privacy Policy. Learn how we collect, use, and protect your personal data.">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --font-main: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg: #09090b;
+  --bg-card: #131316;
+  --bg-surface: #0f0f12;
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --border: #27272a;
+  --border-light: #3f3f46;
+  --gradient-1: linear-gradient(135deg, #a855f7, #ec4899, #f97316);
+  --gradient-text: linear-gradient(135deg, #c084fc, #f472b6, #fb923c);
+  --purple: #a855f7;
+  --pink: #ec4899;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* Header */
+.header {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: rgba(9, 9, 11, 0.92);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.header-logo span {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.header-back {
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: color var(--transition-interactive);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.header-back:hover { color: var(--text-primary); }
+
+/* Page title */
+.page-hero {
+  padding: 64px 0 40px;
+  border-bottom: 1px solid var(--border);
+}
+.page-title {
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.page-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+.effective-date {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 6px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Content */
+.legal-content {
+  padding: 48px 0 80px;
+  max-width: 800px;
+}
+.legal-content h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+.legal-content h2:first-child { margin-top: 0; }
+.legal-content h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+.legal-content p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.75;
+}
+.legal-content ul {
+  list-style: none;
+  margin-bottom: 16px;
+  padding-left: 0;
+}
+.legal-content ul li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  padding: 4px 0 4px 20px;
+  position: relative;
+  line-height: 1.7;
+}
+.legal-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--purple);
+  opacity: 0.6;
+}
+.legal-content a {
+  color: var(--purple);
+  text-decoration: underline;
+  text-decoration-color: rgba(168, 85, 247, 0.3);
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--transition-interactive);
+}
+.legal-content a:hover { text-decoration-color: var(--purple); }
+.legal-content strong { color: var(--text-primary); font-weight: 600; }
+
+/* Info box */
+.info-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.info-box p { margin-bottom: 8px; }
+.info-box p:last-child { margin-bottom: 0; }
+
+/* Footer */
+.footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-left {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.footer-links a {
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: color var(--transition-interactive);
+}
+.footer-links a:hover { color: var(--text-primary); }
+
+@media (max-width: 560px) {
+  .footer-inner { flex-direction: column; text-align: center; }
+  .page-hero { padding: 48px 0 32px; }
+  .legal-content { padding: 32px 0 64px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="https://www.kh-academy.com" class="header-logo"><span>KH</span> Academy</a>
+      <a href="https://www.kh-academy.com" class="header-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to site
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ========== PAGE TITLE ========== -->
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-title">Privacy Policy</h1>
+    <p class="page-subtitle">How KH Academy collects, uses, and protects your personal data.</p>
+    <div class="effective-date">Last updated: March 17, 2026</div>
+  </div>
+</section>
+
+<!-- ========== CONTENT ========== -->
+<main class="container">
+  <div class="legal-content">
+
+    <h2>1. Who We Are</h2>
+    <p>KH Academy (Knowledge Hub Academy) is a digital education business based in Hong Kong SAR that sells AI courses and toolkits globally. Our website is <a href="https://www.kh-academy.com">www.kh-academy.com</a> and our learning platform is at <a href="https://app.kh-academy.com">app.kh-academy.com</a>.</p>
+    <p>For privacy inquiries, contact us at <a href="mailto:info@kh-academy.com">info@kh-academy.com</a>.</p>
+
+    <h2>2. What Data We Collect</h2>
+
+    <h3>Information you provide</h3>
+    <ul>
+      <li><strong>Account information</strong> — your name and email address, provided when you sign up for a free account or purchase a product</li>
+      <li><strong>Payment information</strong> — billing details processed securely by Stripe; we do not store your full card number on our servers</li>
+    </ul>
+
+    <h3>Information collected automatically</h3>
+    <ul>
+      <li><strong>Authentication tokens</strong> — session tokens stored in your browser to keep you logged in</li>
+      <li><strong>Basic usage data</strong> — pages visited, product access timestamps, and login activity to maintain your account and deliver purchased content</li>
+      <li><strong>Device and browser information</strong> — browser type, operating system, and screen size collected through standard HTTP headers for site functionality</li>
+    </ul>
+
+    <h3>Information we do not collect</h3>
+    <ul>
+      <li>We do not use tracking cookies, advertising pixels, or analytics trackers</li>
+      <li>We do not collect location data beyond what is provided by your IP address</li>
+      <li>We do not collect biometric data or sensitive personal data</li>
+    </ul>
+
+    <h2>3. How We Use Your Data</h2>
+    <p>We use your personal data only for the following purposes:</p>
+    <ul>
+      <li><strong>Account creation and management</strong> — creating your account, generating login credentials, and maintaining your access to purchased products</li>
+      <li><strong>Purchase fulfillment</strong> — processing your payment and granting access to the digital products you buy</li>
+      <li><strong>Credential delivery</strong> — sending your login details (email and temporary password) to your email address after signup or purchase</li>
+      <li><strong>Product access</strong> — authenticating you when you log in and serving the content you have purchased</li>
+      <li><strong>Transactional emails</strong> — sending purchase confirmations, password resets, and essential account notifications</li>
+      <li><strong>Customer support</strong> — responding to your questions or requests</li>
+    </ul>
+    <p>We do not use your data for profiling, targeted advertising, or automated decision-making.</p>
+
+    <h2>4. Third-Party Services</h2>
+    <p>We share data with the following third-party service providers, only to the extent necessary for them to perform their functions:</p>
+
+    <div class="info-box">
+      <p><strong>Stripe</strong> — processes payments. Stripe receives your billing details (card number, billing address) directly. See <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's Privacy Policy</a>.</p>
+      <p><strong>Resend</strong> — sends transactional emails (account credentials, purchase confirmations). Resend receives your email address and name. See <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">Resend's Privacy Policy</a>.</p>
+      <p><strong>Vercel</strong> — hosts our website and application. Vercel may process basic request data (IP addresses, request headers) as part of serving web pages. See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Vercel's Privacy Policy</a>.</p>
+    </div>
+
+    <p>We do not sell, rent, or trade your personal data to any third party. We do not share your data with advertisers or data brokers.</p>
+
+    <h2>5. Cookies and Local Storage</h2>
+    <p>We use minimal browser storage:</p>
+    <ul>
+      <li><strong>Authentication tokens</strong> — a session token stored to keep you logged in. This is essential for the site to function and is not used for tracking.</li>
+    </ul>
+    <p>We do not use advertising cookies, third-party tracking cookies, or analytics cookies. There are no cookie consent banners because we have no optional cookies to consent to.</p>
+
+    <h2>6. Data Retention</h2>
+    <ul>
+      <li><strong>Account data</strong> (name, email) — retained for as long as your account is active, so you can continue to access products you have purchased</li>
+      <li><strong>Payment records</strong> — retained as required by applicable tax and financial regulations (typically 7 years)</li>
+      <li><strong>Transactional emails</strong> — email sending logs are retained by Resend per their retention policy</li>
+    </ul>
+    <p>If you request account deletion, we will remove your personal data within 30 days, except where retention is required by law.</p>
+
+    <h2>7. Data Security</h2>
+    <p>We take reasonable measures to protect your data, including:</p>
+    <ul>
+      <li>HTTPS encryption on all connections</li>
+      <li>Passwords are hashed before storage — we never store plaintext passwords</li>
+      <li>Payment data is processed entirely by Stripe and never touches our servers</li>
+      <li>Access to production systems is restricted to authorized personnel</li>
+    </ul>
+    <p>No method of transmission over the internet is 100% secure. While we strive to protect your personal data, we cannot guarantee its absolute security.</p>
+
+    <h2>8. Hong Kong PDPO Compliance</h2>
+    <p>As a Hong Kong-based business, we comply with the <strong>Personal Data (Privacy) Ordinance (PDPO)</strong>, Cap. 486, of the Laws of Hong Kong. In accordance with the PDPO's Data Protection Principles:</p>
+    <ul>
+      <li><strong>Purpose limitation</strong> — we collect data only for the purposes stated in this policy and use it only for those purposes</li>
+      <li><strong>Data minimization</strong> — we collect only the data necessary to provide our services</li>
+      <li><strong>Accuracy</strong> — you can update your account information at any time by contacting us</li>
+      <li><strong>Data security</strong> — we implement appropriate security measures to protect your data</li>
+      <li><strong>Transparency</strong> — this policy openly describes our data practices</li>
+      <li><strong>Access and correction</strong> — you have the right to request access to and correction of your personal data held by us, as provided under the PDPO</li>
+    </ul>
+    <p>To make a data access or correction request, email <a href="mailto:info@kh-academy.com">info@kh-academy.com</a>. We will respond within 40 days as required by the PDPO.</p>
+
+    <h2>9. GDPR Compliance (EU Customers)</h2>
+    <p>If you are located in the European Economic Area (EEA), the United Kingdom, or Switzerland, the following additional rights and information apply to you under the General Data Protection Regulation (GDPR):</p>
+
+    <h3>Lawful basis for processing</h3>
+    <ul>
+      <li><strong>Contract performance</strong> — processing your data is necessary to create your account, deliver the digital products you purchase, and provide customer support (Article 6(1)(b))</li>
+      <li><strong>Legal obligation</strong> — retaining financial records as required by tax law (Article 6(1)(c))</li>
+      <li><strong>Legitimate interests</strong> — maintaining site security and preventing fraud (Article 6(1)(f))</li>
+    </ul>
+
+    <h3>Your rights under GDPR</h3>
+    <p>You have the right to:</p>
+    <ul>
+      <li><strong>Access</strong> your personal data and receive a copy</li>
+      <li><strong>Rectify</strong> inaccurate or incomplete data</li>
+      <li><strong>Erase</strong> your data ("right to be forgotten"), subject to legal retention requirements</li>
+      <li><strong>Restrict</strong> processing in certain circumstances</li>
+      <li><strong>Data portability</strong> — receive your data in a structured, machine-readable format</li>
+      <li><strong>Object</strong> to processing based on legitimate interests</li>
+      <li><strong>Lodge a complaint</strong> with your local data protection authority</li>
+    </ul>
+    <p>To exercise any of these rights, email <a href="mailto:info@kh-academy.com">info@kh-academy.com</a>. We will respond within 30 days.</p>
+
+    <h3>International data transfers</h3>
+    <p>Your data may be processed outside the EEA by our service providers (Stripe, Resend, Vercel). These transfers are safeguarded by the providers' compliance with applicable data transfer mechanisms, including Standard Contractual Clauses where required.</p>
+
+    <h2>10. Children's Privacy</h2>
+    <p>Our services are not directed at individuals under the age of 16. We do not knowingly collect personal data from children. If you believe a child has provided us with personal data, please contact us at <a href="mailto:info@kh-academy.com">info@kh-academy.com</a> and we will delete it promptly.</p>
+
+    <h2>11. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. If we make significant changes, we will notify you by email or by posting a notice on our website. The "Last updated" date at the top of this page indicates when the policy was most recently revised.</p>
+    <p>Your continued use of our services after any changes constitutes acceptance of the updated policy.</p>
+
+    <h2>12. Contact Us</h2>
+    <div class="info-box">
+      <p><strong>KH Academy (Knowledge Hub Academy)</strong></p>
+      <p>Hong Kong SAR</p>
+      <p>Email: <a href="mailto:info@kh-academy.com">info@kh-academy.com</a></p>
+      <p>Website: <a href="https://www.kh-academy.com">www.kh-academy.com</a></p>
+    </div>
+
+  </div>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">&copy; 2026 KH Academy. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://www.kh-academy.com">Home</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:info@kh-academy.com">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
