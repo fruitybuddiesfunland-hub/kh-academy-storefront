@@ -1265,6 +1265,175 @@ ul { list-style: none; }
   .footer-inner { flex-direction: column; text-align: center; }
 }
 
+/* ========== BONUS BANNER ========== */
+.bonus-banner {
+  padding: 80px 0 0;
+}
+.bonus-banner-card {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  text-align: center;
+  overflow: hidden;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+.bonus-banner-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-lg);
+  padding: 1px;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.bonus-banner-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(168,85,247,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.bonus-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--pink);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+.bonus-label::before,
+.bonus-label::after {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--pink);
+  opacity: 0.4;
+}
+.bonus-title {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+.bonus-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto 32px;
+  position: relative;
+  z-index: 1;
+}
+.bonus-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.countdown-digit {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-width: 56px;
+}
+.countdown-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+.countdown-sep {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 300;
+  color: var(--border-light);
+  line-height: 1;
+  padding-top: 2px;
+}
+.bonus-what {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(168,85,247,0.08);
+  border: 1px solid rgba(168,85,247,0.15);
+  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  margin-bottom: 28px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+.bonus-what strong { color: var(--text-primary); }
+.bonus-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--gradient-1);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition-interactive), box-shadow var(--transition-interactive);
+  position: relative;
+  z-index: 1;
+}
+.bonus-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(168,85,247,0.3);
+}
+.bonus-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(168,85,247,0.1);
+  border: 1px solid rgba(168,85,247,0.25);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 16px;
+}
+
+@media (max-width: 560px) {
+  .bonus-banner-card { padding: 32px 20px; }
+  .bonus-countdown { gap: 10px; }
+  .countdown-digit { min-width: 44px; }
+}
+
 /* ========== REDUCED MOTION ========== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -1320,7 +1489,7 @@ ul { list-style: none; }
   <div class="hero-content">
     <div class="hero-badge animate-in">
       <span class="hero-badge-dot"></span>
-      New: AI Automation Mastery just launched
+      Trending: 200+ Ready-to-Use AI Prompts Inside
     </div>
     <h1 class="animate-in">Stop Guessing.<br><span class="gradient-text">Start Commanding AI.</span></h1>
     <p class="hero-subtitle animate-in">Production-ready prompts, custom Skills & Gems, and automation blueprints — everything you need to turn Claude and Gemini into your unfair advantage.</p>
@@ -1538,6 +1707,46 @@ ul { list-style: none; }
   </div>
 </section>
 
+<!-- ========== BONUS BANNER ========== -->
+<section class="bonus-banner" id="bonus-banner">
+  <div class="container">
+    <div class="bonus-banner-card animate-in">
+      <div class="bonus-label">Limited Time Bonus</div>
+      <h2 class="bonus-title">Free Prompt Template Vault with the <span class="gradient-text">Ultimate Bundle</span></h2>
+      <p class="bonus-subtitle">Buy the Ultimate AI Bundle and get 50 extra ready-to-use business prompts — completely free.</p>
+      <div class="bonus-countdown" id="bonusCountdown">
+        <div class="countdown-unit">
+          <span class="countdown-digit" id="countDays">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-digit" id="countHours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-digit" id="countMins">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-digit" id="countSecs">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+      <div class="bonus-what">
+        <span>🎁</span>
+        <span><strong>Prompt Template Vault</strong> — 50 business prompts for sales, marketing, ops & more</span>
+      </div>
+      <a href="#bundle" class="bonus-cta-btn">
+        Claim the Bundle + Free Bonus
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ========== BUNDLE ========== -->
 <section class="bundle" id="bundle">
   <div class="container">
@@ -1574,6 +1783,7 @@ ul { list-style: none; }
               <span class="bundle-item-name">AI Automation Mastery</span>
             </div>
           </div>
+          <div class="bonus-tag" id="bundleBonusTag">🎁 Bonus: Free Prompt Template Vault included</div>
           <button onclick="buyProduct('ultimate-bundle')" class="bundle-btn">
             Get the Ultimate Bundle — $97
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -2009,6 +2219,55 @@ async function handleInlineSignup(e) {
     btn.textContent = 'Get Free Access';
   }
 }
+
+// ===== BONUS COUNTDOWN TIMER =====
+(function() {
+  var STORAGE_KEY = 'kh_bonus_end';
+  var BONUS_DAYS = 7;
+
+  function getEndDate() {
+    var stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      var d = new Date(stored);
+      if (!isNaN(d.getTime())) return d;
+    }
+    var end = new Date(Date.now() + BONUS_DAYS * 24 * 60 * 60 * 1000);
+    localStorage.setItem(STORAGE_KEY, end.toISOString());
+    return end;
+  }
+
+  var endDate = getEndDate();
+  var banner = document.getElementById('bonus-banner');
+  var bonusTag = document.getElementById('bundleBonusTag');
+
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+  function tick() {
+    var now = Date.now();
+    var diff = endDate.getTime() - now;
+
+    if (diff <= 0) {
+      if (banner) banner.style.display = 'none';
+      if (bonusTag) bonusTag.style.display = 'none';
+      return;
+    }
+
+    var d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    var s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    var el;
+    el = document.getElementById('countDays'); if (el) el.textContent = pad(d);
+    el = document.getElementById('countHours'); if (el) el.textContent = pad(h);
+    el = document.getElementById('countMins'); if (el) el.textContent = pad(m);
+    el = document.getElementById('countSecs'); if (el) el.textContent = pad(s);
+
+    requestAnimationFrame(function() { setTimeout(tick, 1000); });
+  }
+
+  tick();
+})();
 </script>
 </body>
 </html>
