@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <title>Payment Successful — KH Academy</title>
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
 <style>
 :root {
   --font-main: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
-  --bg: #09090b;
-  --text-primary: #f4f4f5;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  --border: #27272a;
-  --purple: #a855f7;
-  --pink: #ec4899;
-  --gradient-text: linear-gradient(135deg, #c084fc, #f472b6, #fb923c);
+  --bg: #FAF9F6;
+  --text-primary: #2D2A26;
+  --text-secondary: #6B6862;
+  --text-muted: #9E9B95;
+  --border: #E5E2DC;
+  --purple: #0F766E;
+  --pink: #D97706;
+  --gradient-text: #0F766E;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -38,26 +38,23 @@ body {
   width: 80px;
   height: 80px;
   margin: 0 auto 32px;
-  background: linear-gradient(135deg, rgba(168,85,247,0.2), rgba(236,72,153,0.15));
+  background: rgba(15, 118, 110, 0.08);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgba(168,85,247,0.3);
+  border: 2px solid rgba(15, 118, 110, 0.2);
 }
 .success-icon svg {
   width: 40px;
   height: 40px;
-  stroke: #a855f7;
+  stroke: #0F766E;
 }
 h1 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 16px;
-  background: var(--gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #0F766E;
 }
 .success-text {
   color: var(--text-secondary);
@@ -69,8 +66,8 @@ h1 {
   color: var(--text-primary);
 }
 .info-box {
-  background: rgba(168,85,247,0.08);
-  border: 1px solid rgba(168,85,247,0.2);
+  background: rgba(15, 118, 110,0.08);
+  border: 1px solid rgba(15, 118, 110,0.2);
   border-radius: 12px;
   padding: 24px;
   margin-bottom: 32px;
@@ -107,7 +104,7 @@ h1 {
 }
 .success-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 25px rgba(168,85,247,0.3);
+  box-shadow: 0 8px 25px rgba(15, 118, 110,0.3);
 }
 .back-link {
   display: block;
